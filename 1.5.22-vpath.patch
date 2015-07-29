@@ -1,0 +1,16 @@
+--- origsrc/ibus-kkc-1.5.22/src/Makefile.am	2014-12-19 01:25:07.000000000 -0600
++++ src/ibus-kkc-1.5.22/src/Makefile.am	2015-07-28 23:18:08.518283000 -0500
+@@ -106,11 +106,11 @@ ibus_setup_kkc_SOURCES =			\
+ 	$(NULL)
+ 
+ ibus-engine-kkc-resources.c: ibus-engine-kkc.gresource.xml ibus-kkc-dictionaries.json
+-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) ibus-engine-kkc.gresource.xml \
++	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --sourcedir=$(srcdir) \
+ 		--target=$@ --c-name ibus_kkc --generate-source
+ 
+ ibus-setup-kkc-resources.c: ibus-setup-kkc.gresource.xml setup-dialog.ui dictionary-dialog.ui shortcut-dialog.ui ibus-kkc-dictionaries.json $(top_srcdir)/icons/ibus-kkc.svg
+-	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) ibus-setup-kkc.gresource.xml \
++	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --sourcedir=$(srcdir) \
+ 		--target=$@ --c-name ibus_kkc --generate-source
+ 
+ edit = sed \

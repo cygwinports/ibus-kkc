@@ -1,0 +1,16 @@
+inherit gnome2
+
+NAME="ibus-kkc"
+VERSION=1.5.22
+RELEASE=1
+CATEGORY="X11"
+SUMMARY="Japanese Kana Kanji converter input engine for IBus"
+HOMEPAGE="https://github.com/ueno/ibus-kkc"
+SRC_URI="https://github.com/ueno/ibus-kkc/archive/v${VERSION}/ibus-kkc-v${VERSION}.tar.gz"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/ibus-kkc.git/plain/ibus-kkc-content-type.patch
+	1.5.22-vpath.patch
+"
+
+# vala sources generated in srcdir
+RESTRICT=diff
